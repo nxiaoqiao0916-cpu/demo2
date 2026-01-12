@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>1–3 年级</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="grade-page">
+
+<div class="moon"></div>
+
+<h1>👑 最终关：初四–初五</h1>
+
+<div class="question" data-subject="Math" data-score="10">
+  <p>1️⃣ Which gas is used in photosynthesis?</p>
+  <label><input type="radio" name="q1" value="1"> Carbon Dioxide</label>
+  <label><input type="radio" name="q1" value="0"> Oxygen</label>
+</div>
+
+<div class="question" data-subject="English" data-score="10">
+  <p>2️⃣ Derivative of x² = ?</p>
+  <label><input type="radio" name="q2" value="1"> 2x</label>
+  <label><input type="radio" name="q2" value="0"> x²</label>
+</div>
+
+<button onclick="finishGame()">完成关卡</button>
+
+<div id="result"></div>
+
+<script>
+  // 星空生成
+  for(let i=0;i<100;i++){
+    let star = document.createElement('div');
+    star.className = 'star';
+    star.style.top = Math.random()*100 + 'vh';
+    star.style.left = Math.random()*100 + 'vw';
+    star.style.width = star.style.height = (Math.random()*3+1) + 'px';
+    document.body.appendChild(star);
+  }
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

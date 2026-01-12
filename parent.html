@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>家长信息填写</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="form-page">
+
+<h1>👋 欢迎来到学习冒险岛</h1>
+<p>请先填写家长信息，然后开始测试</p>
+
+<form id="parentForm">
+  <label>
+    家长姓名：
+    <input type="text" id="parentName" required>
+  </label><br><br>
+
+  <label>
+    电话号码：
+    <input type="tel" id="phoneNumber" required pattern="[0-9]{10,12}">
+  </label><br><br>
+
+  <label>
+    孩子年级：
+    <select id="childGrade" required>
+      <option value="">请选择年级</option>
+      <option value="1-3">1-3年级</option>
+      <option value="4-6">4-6年级</option>
+      <option value="junior1-3">初一-初三</option>
+      <option value="junior4-5">初四-初五</option>
+    </select>
+  </label><br><br>
+
+  <button type="submit">开始测试 🎮</button>
+</form>
+
+<script>
+const form = document.getElementById('parentForm');
+form.addEventListener('submit', function(e){
+  e.preventDefault();  // 阻止刷新，但不影响下拉
+
+  const name = document.getElementById('parentName').value;
+  const phone = document.getElementById('phoneNumber').value;
+  const grade = document.getElementById('childGrade').value;
+
+  if(name && phone && grade){
+    // 替换成你的 Google 表单 ID 和 Entry IDs
+    const formUrl = 'https://docs.google.com/forms/d/e/你的表单ID/formResponse?';
+    const submitUrl = formUrl +
+      'entry.1111111111=' + encodeURIComponent(name) +
+      '&entry.2222222222=' + encodeURIComponent(phone) +
+      '&entry.3333333333=' + encodeURIComponent(grade);
+
+    // 提交到 Google 表单后台
+    fetch(submitUrl, { method: 'POST', mode: 'no-cors' });
+
+    // 保存信息到 localStorage（可在后续页面显示家长名）
+    localStorage.setItem('parentName', name);
+    localStorage.setItem('phoneNumber', phone);
+
+    // 跳转首页
+    window.location.href = 'index.html';
+  }
+});
+</script>
+
+</body>
+</html>

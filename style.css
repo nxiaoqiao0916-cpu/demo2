@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+body {
+  font-family: 'Baloo 2', cursive, sans-serif;
+  margin:0; padding:0; min-height:100vh; overflow:hidden; color:white;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+body.grade-page {
+  font-family: 'Baloo 2', cursive, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* overflow: hidden; */   /* 取消这一行，允许滚动 */
+  overflow-y: auto;          /* 垂直滚动 */
+  color: white;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  position: relative;        /* 保留星空定位 */
+}
+
+.moon {
+  position: absolute; width:100px; height:100px;
+  background: radial-gradient(circle, #fffacd 0%, #f0e68c 100%);
+  border-radius:50%; top:50px; right:50px; box-shadow:0 0 30px 10px #fffacd;
+}
+
+.star { position:absolute; background:white; border-radius:50%;
+  animation: twinkle 2s infinite alternate; }
+@keyframes twinkle {
+  from {opacity:0.2; transform:scale(0.5);}
+  to {opacity:1; transform:scale(1.2);}
+}
+
+h1,h2{ text-align:center; color:#ffcc66; text-shadow:1px 1px 3px #000; }
+
+.question{
+  background: rgba(255,255,255,0.2); border-radius:15px; padding:15px;
+  margin:20px auto; max-width:500px; text-align:left; backdrop-filter: blur(5px);
+  border:1px solid rgba(255,255,255,0.3); transition: transform 0.2s;
+}
+.question:hover{ transform: scale(1.05); }
+
+button{
+  display:block; margin:20px auto; padding:12px 25px;
+  font-size:18px; border-radius:20px; border:none;
+  background-color:#ffcc66; cursor:pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+button:hover{ transform: scale(1.1); background-color:#ffd966; }
+
+#result{ margin-top:30px; padding:20px; background: rgba(255,255,255,0.3); border-radius:15px; color:#fff; text-align:center; }
+form select {
+  z-index: 1000;
+  position: relative;
+  appearance: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 220px;
+  font-size: 16px;
+  background-color: #fff8dc;
+  cursor: pointer;
+}
